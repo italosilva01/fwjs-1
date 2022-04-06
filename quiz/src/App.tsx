@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import { Quiz } from './components/Quiz';
+import { AbasFather } from './components/AbasFather';
 
 function App() {
-  return <Quiz />
+  return <AbasFather />
 }
 
 export default App;
