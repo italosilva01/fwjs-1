@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Aba } from "./Aba";
 
 interface AbaContent{
@@ -7,15 +7,25 @@ interface AbaContent{
 }
 
 export const AbasFather = ()=>{
-const [abas,setAbas] = useState<AbaContent[]>([{title:'Tab1',content:'Texto do segundo tabl'},{title:'Tab2',content:'Texto do segundo tab2'},{title:'Tab3',content:'Texto do segundo tab3'},{title:'Tab4',content:'Texto do segundo tab4'}] )
+const abas = [{title:'Tab1',content:'Texto do  tab1'},{title:'Tab2',content:'Texto do  tab2'},{title:'Tab3',content:'Texto do tab3'},{title:'Tab4',content:'Texto do tab4'}] ;
 
-const Abas = abas.map((item)=><Aba text={item.title}/>)
+const [currentAba,setCurrentAba] = useState<number>(0);
+
+const Abas = abas.map((item,index)=><Aba key={index} text={item.title} position={index} setCurrentAba={setCurrentAba}/>)
+
+useEffect(()=>{
+
+    console.log(currentAba)
+},[currentAba])
     return (
 
-        <div>
+        <div className="body">
            <div className="container-aba">
            {Abas}
            </div> 
+           <div className="content">
+            <h3>{abas[currentAba].content}</h3>
+           </div>
         </div>
     );
 
