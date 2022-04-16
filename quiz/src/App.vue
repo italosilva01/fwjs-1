@@ -1,15 +1,15 @@
 <script setup lang="ts">
+import AbaFatherVue from "./assets/componentes/AbaFather/AbaFather.vue";
 </script>
 
 <template>
-  <h1>Olá mundo!</h1>
+  <AbaFatherVue />
 </template>
 
 <style>
-@import './assets/base.css';
+@import "./assets/base.css";
 
 #app {
   text-align: center;
 }
-
 </style>
