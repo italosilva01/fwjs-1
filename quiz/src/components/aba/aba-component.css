@@ -1,0 +1,11 @@
+.container-button {
+    width: 112px;
+    height: 32px;
+    background-color: #cccccc;
+    text-align: center;
+    border: 1px solid #77777777;
+    transition: filter 0.2s;
+  }
+  .container-button:hover {
+    filter: brightness(0.9);
+  }

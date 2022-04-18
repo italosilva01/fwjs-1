@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'aba-father',
   template: '<aba [text]="name">',
   styles: [`
     h1 {
