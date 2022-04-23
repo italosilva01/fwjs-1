@@ -1,0 +1,12 @@
+<div class="abas-father">
+  <div class="containerAba">
+    <aba
+      *ngFor="let aba of abas; let position = index"
+      [text]="aba.title"
+      [position]="position"
+      (newEvent)="selectPosition(position)"
+    >
+    </aba>
+  </div>
+  <div class="content">{{ abas[currentState].content }}</div>
+</div>
