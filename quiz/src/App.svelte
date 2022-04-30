@@ -1,8 +1,10 @@
 <script lang="ts">
+
+	import AbaFather from './components/AbasFather.svelte'
 </script>
 
-<main>
-	<h1>Olá mundo!</h1>
+<main>dwa
+	<AbaFather/>
 </main>
 
 <style>
