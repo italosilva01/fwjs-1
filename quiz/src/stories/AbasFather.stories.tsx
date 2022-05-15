@@ -13,3 +13,11 @@ const Template: ComponentStory<typeof AbasFather> = (args) => (
 );
 
 export const Primary = Template.bind({});
+
+const abas = [
+  { tab: "Título 1", content: "Texto do tab 1" },
+  { tab: "Título 2", content: "Texto do tab 2" },
+];
+Primary.args = {
+  abas: abas,
+};

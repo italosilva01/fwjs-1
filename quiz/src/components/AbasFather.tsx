@@ -1,20 +1,15 @@
 import { useState } from "react";
 import { Aba } from "./Aba";
-
-export const AbasFather = () => {
-  const abas = [
-    { title: "Tab1", content: "1111111111111111111111111111111111111" },
-    { title: "Tab2", content: "2222222222222222222222222222222222222" },
-    { title: "Tab3", content: "3333333333333333333333333333333333333" },
-    { title: "Tab4", content: "4444444444444444444444444444444444444" },
-  ];
-
+interface AbasFatherProps {
+  abas: { tab: string; content: string }[];
+}
+export const AbasFather = ({ abas }: AbasFatherProps) => {
   const [currentAba, setCurrentAba] = useState<number>(0);
 
   const Abas = abas.map((item, index) => (
     <Aba
       key={index}
-      text={item.title}
+      text={item.tab}
       position={index}
       setCurrentAba={setCurrentAba}
     />
