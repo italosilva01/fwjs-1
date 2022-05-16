@@ -1,12 +1,10 @@
 <template>
-  <div class="container-button" @click="btnClick(position)">
-    {{ text }}
-  </div>
+  <div class="container-button" @click="btnClick(position)">{{ tab }}</div>
 </template>
 
 <script setup lang="ts">
 export interface AbaProps {
-  text: string;
+  tab: string;
   position: number;
 }
 
@@ -14,7 +12,7 @@ defineProps<AbaProps>();
 
 const emit = defineEmits(["change"]);
 
-function btnClick(position: number) {
+function btnClick(position: number): void {
   console.log(position);
   emit("change", position);
 }

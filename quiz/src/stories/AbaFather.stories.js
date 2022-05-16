@@ -4,21 +4,22 @@ export default {
   title: "Component/AbaFather",
   component: AbaFather,
 };
+
+const abas = [
+  { tab: "Tabe1", content: "1111111111111111111111111111111111111" },
+  { tab: "Tab2", content: "2222222222222222222222222222222222222" },
+  { tab: "Tab3", content: "3333333333333333333333333333333333333" },
+  { tab: "Tab4", content: "4444444444444444444444444444444444444" },
+];
 const Template = (args) => ({
   components: { AbaFather },
   setup() {
-    //👇 The args will now be passed down to the template
-    return { args };
+    return args;
   },
-  template: '<AbaFatherVue :abas="abas" />',
+  template: '<AbaFather v-bind="$props" />',
 });
-export const Primary = Template.bind({});
 
-Primary.args = {
-  abas: [
-    { title: "Tab1", content: "1111111111111111111111111111111111111" },
-    { title: "Tab2", content: "2222222222222222222222222222222222222" },
-    { title: "Tab3", content: "3333333333333333333333333333333333333" },
-    { title: "Tab4", content: "4444444444444444444444444444444444444" },
-  ],
-};
+export const Primary = Template.bind({});
+Primary.args = { abas: abas };
+export const Secondary = Template.bind({});
+Secondary.args = {};

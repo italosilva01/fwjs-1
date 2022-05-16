@@ -15,5 +15,5 @@ const Template = (args) => ({
 export const Primary = Template.bind({});
 
 Primary.args = {
-  text: "Primary",
+  tab: "Primary",
 };

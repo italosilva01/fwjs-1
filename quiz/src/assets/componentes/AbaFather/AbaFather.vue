@@ -3,18 +3,38 @@
     <div class="aba">
       <Aba
         v-for="(item, index) in abas"
-        :key="item.title"
-        :text="item.title"
+        :key="index"
+        :tab="item.tab"
         :position="index"
         @change="chanceCurrentAba"
       />
     </div>
 
     <div class="content">
-      <h4>{{ abas[state.count].content }}</h4>
+      <h4>{{ abas[state].content }}</h4>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { ref, reactive } from "vue";
+import Aba from "../Aba/Aba.vue";
+export interface abaProp {
+  tab: string;
+  content: string;
+}
+export interface AbaFatherProps {
+  abas: abaProp[];
+}
+
+defineProps<AbaFatherProps>();
+
+const state = ref(0);
+
+const chanceCurrentAba = (position: number) => {
+  state.value = position;
+};
+</script>
 
 <style scoped>
 .aba {
@@ -39,23 +59,3 @@
   margin-top: 19px;
 }
 </style>
-
-<script setup lang="ts">
-import { reactive, ref } from "vue";
-import Aba from "../Aba/Aba.vue";
-
-export interface AbaFatherProps {
-  abas: {
-    title: string;
-    content: string;
-  }[];
-}
-
-defineProps<AbaFatherProps>();
-
-const state = reactive({ count: 0 });
-
-const chanceCurrentAba = (position: number) => {
-  state.count = position;
-};
-</script>
