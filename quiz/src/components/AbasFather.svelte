@@ -1,7 +1,7 @@
 <div class="abas-father">
     <div class="container">
         {#each  abas as item, i}
-            <Aba name={item.title} position={i} on:chanceCurrentStep={(e)=>chanceValue(e.detail)}/>
+            <Aba name={item.tab} position={i} on:chanceCurrentStep={(e)=>chanceValue(e.detail)}/>
         {/each}
        
     </div>
@@ -12,14 +12,9 @@
 
   <script lang="ts">
       import Aba from './Aba.svelte'
-     const abas = [
-    { title: "Tab1", content: "1111111111111111111111111111111111111" },
-    { title: "Tab2", content: "2222222222222222222222222222222222222" },
-    { title: "Tab3", content: "3333333333333333333333333333333333333" },
-    { title: "Tab4", content: "4444444444444444444444444444444444444" },
-  ];
-
-  let currentAba = 0
+     export let abas:{tab:string,content:string}[] ;
+  
+     let currentAba = 0
 
   function chanceValue(position:number){
 

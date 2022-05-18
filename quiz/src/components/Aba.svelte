@@ -6,6 +6,7 @@
   height: 32px;
   background-color: #cccccc;
   border: 1px solid #77777777;
+  text-align: center;
 }
 
 
