@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'aba',
+  selector: 'AbaComponent',
   templateUrl: './aba.component.html',
   styleUrls: ['./aba-component.css'],
 })

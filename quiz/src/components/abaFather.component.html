@@ -1,12 +1,12 @@
 <div class="abas-father">
   <div class="containerAba">
-    <aba
+    <AbaComponent
       *ngFor="let aba of abas; let position = index"
-      [text]="aba.title"
+      [text]="aba.tab"
       [position]="position"
       (newEvent)="selectPosition(position)"
     >
-    </aba>
+    </AbaComponent>
   </div>
   <div class="content">{{ abas[currentState].content }}</div>
 </div>

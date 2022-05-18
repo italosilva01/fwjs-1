@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/angular';
 import { AbaComponent } from './aba.component';
 
 export default {
-  title: 'Componentes/Aba',
+  title: 'Components/Aba',
   component: AbaComponent,
 } as Meta;
 
