@@ -16,10 +16,8 @@ const Template = (args) => ({
   setup() {
     return args;
   },
-  template: '<AbaFather v-bind="$props" />',
+  template: '<AbaFather :abas="abas" />',
 });
 
 export const Primary = Template.bind({});
 Primary.args = { abas: abas };
-export const Secondary = Template.bind({});
-Secondary.args = {};
