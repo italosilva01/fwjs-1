@@ -11,7 +11,7 @@ const Template: Story<AbaFatherComponent> = (args: AbaFatherComponent) => ({
 });
 
 export const Primary = Template.bind({});
-const abas = [
+const aba = [
   { tab: 'Tab1', content: 's' },
   { tab: 'Tab2', content: '2222222222222222222222222222222222222' },
   { tab: 'Tab3', content: '3333333333333333333333333333333333333' },
@@ -19,6 +19,6 @@ const abas = [
 ];
 
 Primary.args = {
-  abas: abas,
+  abas: aba,
 };
 export const Secondary = Template.bind({});

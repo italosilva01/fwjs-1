@@ -22,14 +22,14 @@
     "components": [
         {
             "name": "AbaComponent",
-            "id": "component-AbaComponent-10ba9e405e86ad33c00c345610600acacf42c234a463ec35b506c085e3ee102d311407aecdf8eaa06f17f5ef3750ed3a9f033114bb0050282a40331edab84f15",
+            "id": "component-AbaComponent-357554fab6f950b0a7152b7e66a298080093bdf70de41cc797e312f9e418e561d1f2cc788cc04138a6a91ed3484acf5801fa7d6f82ed455c6cb5669fae5dcf6a",
             "file": "src/components/aba/aba.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "aba",
+            "selector": "AbaComponent",
             "styleUrls": [
                 "./aba-component.css"
             ],
@@ -115,7 +115,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'aba',\n  templateUrl: './aba.component.html',\n  styleUrls: ['./aba-component.css'],\n})\nexport class AbaComponent {\n  title = 'aba';\n  @Input() text!: string;\n  @Input() position!: number;\n  @Output() newEvent = new EventEmitter<number>();\n\n  changePosition(value: number) {\n    this.newEvent.emit(value);\n  }\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'AbaComponent',\n  templateUrl: './aba.component.html',\n  styleUrls: ['./aba-component.css'],\n})\nexport class AbaComponent {\n  title = 'aba';\n  @Input() text!: string;\n  @Input() position!: number;\n  @Output() newEvent = new EventEmitter<number>();\n\n  changePosition(value: number) {\n    this.newEvent.emit(value);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -214,7 +214,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"abas-father\">\r\n  <div class=\"containerAba\">\r\n    <aba\r\n      *ngFor=\"let aba of abas; let position = index\"\r\n      [text]=\"aba.tab\"\r\n      [position]=\"position\"\r\n      (newEvent)=\"selectPosition(position)\"\r\n    >\r\n    </aba>\r\n  </div>\r\n  <div class=\"content\">{{ abas[currentState].content }}</div>\r\n</div>\r\n"
+            "templateData": "<div class=\"abas-father\">\r\n  <div class=\"containerAba\">\r\n    <AbaComponent\r\n      *ngFor=\"let aba of abas; let position = index\"\r\n      [text]=\"aba.tab\"\r\n      [position]=\"position\"\r\n      (newEvent)=\"selectPosition(position)\"\r\n    >\r\n    </AbaComponent>\r\n  </div>\r\n  <div class=\"content\">{{ abas[currentState].content }}</div>\r\n</div>\r\n"
         },
         {
             "name": "AppComponent",
