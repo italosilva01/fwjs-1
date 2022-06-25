@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/styled-components": "^5.1.25"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/italosilva01/fwjs-1/issues"
   },
-  "homepage": "https://github.com/italosilva01/fwjs-1#readme"
+  "homepage": "https://github.com/italosilva01/fwjs-1#readme",
+  "dependencies": {
+    "styled-components": "^5.3.5"
+  }
 }
