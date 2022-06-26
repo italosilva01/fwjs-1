@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/italosilva01/fwjs-1#readme",
   "dependencies": {
+    "@unform/core": "^2.1.6",
+    "@unform/web": "^2.1.6",
     "styled-components": "^5.3.5"
   }
 }

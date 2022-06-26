@@ -9,6 +9,16 @@ export const BoxContainerTab = styled.div`
     box-shadow: 0px 6px 12px rgba(0,0,0,0.12);
     border-radius: 4px;
 
+    button{
+        margin-top: 10px;
+        background: #7B61FF;
+        border-radius: 4px;
+        width: 69px;
+        height: 36px;
+        border: none;
+        color: #ffffff;
+    }
+
 `;
 
 
@@ -22,14 +32,19 @@ export const TitleComponent = styled.h1`
 `
 export const Content = styled.div`
     width:90% ;
-    border: 1px solid red;
     margin-left: auto;
     margin-right: auto;
     
 
     display: flex;
     justify-content: end;
+    
 
+`
+
+export const ContentBodyTabs = styled(Content)`
+    flex-direction: column;
+    gap: 10px;
 `
 
 export const NumTabs = styled.div`
