@@ -1,4 +1,5 @@
 import { UInput } from "../../UInput";
+import { UTextArea } from "../../UTextArea";
 import { Container } from "./style"
 interface CatchInfoProps {
     nameTitle:string;
@@ -10,11 +11,11 @@ export const CatchInfo = ({nameTitle,nameTextArea}:CatchInfoProps)=>{
         <Container>
             <div>
                 <label htmlFor="head">Título</label>
-                <UInput name={nameTitle} type="text" />
+                <UInput name={nameTitle} required type="text" />
             </div>
             <div>
                 <label htmlFor="content">Conteúdo</label>
-                <textarea name="content"/>
+                <UTextArea name={nameTextArea} required/>
             </div>
         </Container>
 

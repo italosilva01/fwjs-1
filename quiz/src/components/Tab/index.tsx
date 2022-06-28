@@ -1,7 +1,10 @@
 
 import { FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
-import {  Fragment, useEffect, useRef, useState } from 'react'
+import {   useEffect, useRef, useState } from 'react'
+import * as Yup from 'yup';
+import { RequiredStringSchema } from 'yup/lib/string';
+import { AnyObject } from 'yup/lib/types';
 
 import { CatchInfo } from "./CatchInfo"
 import { BoxContainerTab, Content, ContentBodyTabs, NumTabs, TitleComponent } from "./style"
@@ -24,9 +27,36 @@ export const Tab = ()=>{
         setCountElementArray(NewArray);
     },[countTabs])
 
-    const handleSubmit = (data:any)=>{
-        console.log('TESTE')
-        console.log(data)
+    const makeObjectShape = (object: Record<string, any>) => {
+        const newObject: { [key: string]: RequiredStringSchema<string | undefined, AnyObject> } = {};
+  
+        Object.keys(object).forEach((key) => {
+  
+          newObject[key] = Yup.string().required('obrigatório');
+        });
+  
+        return newObject;
+      };
+
+      
+
+    const handleSubmit = async (data:any)=>{
+        try {
+            const object = makeObjectShape(data);
+            const schema = Yup.object().shape(object);
+
+
+            await schema.validate(data, {
+              abortEarly: false,
+            });
+            // Validation passed
+            console.log(data);
+          } catch (err) {
+            if (err instanceof Yup.ValidationError) {
+              // Validation failed
+              console.log(err);
+            }
+          }
         
     }
     return(
@@ -41,7 +71,7 @@ export const Tab = ()=>{
         </Content>
         <hr></hr>
         <ContentBodyTabs>
-            {countElementArray.map(()=> <CatchInfo/>)}
+            {countElementArray.map((item)=> <CatchInfo nameTitle={`titleField${item}`} nameTextArea={`ContentField${item}`}/>)}
             
         </ContentBodyTabs>
         <Content>
