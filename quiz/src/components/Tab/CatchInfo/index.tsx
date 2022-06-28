@@ -11,11 +11,11 @@ export const CatchInfo = ({nameTitle,nameTextArea}:CatchInfoProps)=>{
         <Container>
             <div>
                 <label htmlFor="head">Título</label>
-                <UInput name={nameTitle} required type="text" />
+                <UInput name={nameTitle}  type="text" />
             </div>
             <div>
                 <label htmlFor="content">Conteúdo</label>
-                <UTextArea name={nameTextArea} required/>
+                <UTextArea name={nameTextArea} />
             </div>
         </Container>
 

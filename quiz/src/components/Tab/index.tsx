@@ -52,9 +52,15 @@ export const Tab = ()=>{
             // Validation passed
             console.log(data);
           } catch (err) {
-            if (err instanceof Yup.ValidationError) {
-              // Validation failed
-              console.log(err);
+            const validationErrors:any = {};
+
+             if (err instanceof Yup.ValidationError) {
+
+              err.inner.forEach((error:any) => {
+                validationErrors[error.path] = error.message;
+              });  
+              formRef.current?.setErrors(validationErrors);
+
             }
           }
         
