@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Tab } from "./components/Tab";
+import { StateProvider } from "./contexts/contexto";
 import { ContentPage } from "./global";
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
   // ];
   return (
     <ContentPage>
+      <StateProvider>
       <Tab />
+      </StateProvider>
     </ContentPage>
   );
 }
