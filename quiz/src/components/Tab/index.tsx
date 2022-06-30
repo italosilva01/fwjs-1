@@ -5,6 +5,7 @@ import {   useEffect, useRef, useState } from 'react'
 import * as Yup from 'yup';
 import { RequiredStringSchema } from 'yup/lib/string';
 import { AnyObject } from 'yup/lib/types';
+import { useStateContext } from '../../contexts/contexto';
 
 import { CatchInfo } from "./CatchInfo"
 import { BoxContainerTab, Content, ContentBodyTabs, NumTabs, TitleComponent } from "./style"
@@ -16,6 +17,9 @@ export const Tab = ()=>{
 
     const [countTabs,setCountTabs ] = useState<number>(0)
     const [countElementArray,setCountElementArray] = useState<number[]>([] as number[]);
+
+    const {state,setState} = useStateContext()
+
     
     useEffect(()=>{
         let NewArray = []
@@ -50,7 +54,14 @@ export const Tab = ()=>{
               abortEarly: false,
             });
             // Validation passed
-            console.log(data);
+            const newState:any[] = []
+            for (let index = 0; index < countTabs; index++) {
+
+              newState.push({title:data[`titleField${index}`],content:data[`ContentField${index}`]})
+            }
+
+            setState(newState)
+
           } catch (err) {
             const validationErrors:any = {};
 
@@ -77,7 +88,7 @@ export const Tab = ()=>{
         </Content>
         <hr></hr>
         <ContentBodyTabs>
-            {countElementArray.map((item)=> <CatchInfo nameTitle={`titleField${item}`} nameTextArea={`ContentField${item}`}/>)}
+            {countElementArray.map((item,index)=> <CatchInfo key={index} nameTitle={`titleField${item}`} nameTextArea={`ContentField${item}`}/>)}
             
         </ContentBodyTabs>
         <Content>
