@@ -39,6 +39,12 @@ export const Content = styled.div`
     display: flex;
     justify-content: end;
     
+    button{
+        &:hover{
+            filter: brightness(0.8);
+        }
+    }
+    
 
 `
 
