@@ -1,3 +1,4 @@
+import { ContainerButton } from "./style";
 import "./style.css";
 export interface AbaProps {
   text: string;
@@ -7,8 +8,8 @@ export interface AbaProps {
 
 export const Aba = ({ text, setCurrentAba, position }: AbaProps) => {
   return (
-    <div className="container-button" onClick={() => setCurrentAba(position)}>
+    <ContainerButton onClick={() => setCurrentAba(position)}>
       {text}
-    </div>
+    </ContainerButton>
   );
 };

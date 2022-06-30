@@ -1,12 +1,12 @@
-import { useStateContext } from "../../contexts/contexto"
+import { StateProps, useStateContext } from "../../contexts/contexto"
 import { AbasFather } from "../AbasFather"
+import { ContainerContent } from "./style"
 
 export const Content = ()=>{
     const {state} = useStateContext()
-    return (<div>
-        <h1>Teste</h1>
-        
-        <AbasFather abas={state}/>
+    return (<ContainerContent>
+        <h1>Conteúdo</h1>
+        {state.length > 0 &&<AbasFather abas={state}/>}
 
-    </div>)
+    </ContainerContent>)
 }

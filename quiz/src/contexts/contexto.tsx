@@ -1,6 +1,6 @@
 import React, {createContext, ReactNode, useContext, useState} from 'react'
 
-interface StateProps {
+export interface StateProps {
     title:string;
     content:string;
 }
@@ -18,7 +18,7 @@ export const StateContext = createContext<PropsUserContext>({ state:[] as StateP
 
 export const StateProvider = ({children}:StateProviderProps)=>{
 
-    const [state,setState] = useState<StateProps[]>([] as StateProps[])
+    const [state,setState] = useState<StateProps[]>([{title:'Tab',content:'Sem conteudo'}] as StateProps[])
     
     return(
         <StateContext.Provider
