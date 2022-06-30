@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
+import { Content } from "./components/Content";
 import { Tab } from "./components/Tab";
 import { StateProvider } from "./contexts/contexto";
-import { ContentPage } from "./global";
+import { Container, ContentPage } from "./global";
 
 function App() {
   // const abas = [
@@ -14,7 +15,12 @@ function App() {
   return (
     <ContentPage>
       <StateProvider>
-      <Tab />
+        <Container>
+
+        <Tab />
+        <Content/>
+      </Container>
+
       </StateProvider>
     </ContentPage>
   );

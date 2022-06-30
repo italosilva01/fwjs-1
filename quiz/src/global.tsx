@@ -7,3 +7,7 @@ export const ContentPage = styled.div`
     margin: auto 2% auto 2%;
 
 `
+export const Container = styled.div`
+    display: flex;
+    gap: 20px;
+`
