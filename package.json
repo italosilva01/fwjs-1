@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/styled-components": "^5.1.25",
+    "vue-styled-components": "^1.6.0"
+  }
+}

@@ -13,7 +13,6 @@ defineProps<AbaProps>();
 const emit = defineEmits(["change"]);
 
 function btnClick(position: number): void {
-  console.log(position);
   emit("change", position);
 }
 </script>
