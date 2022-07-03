@@ -17,8 +17,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { ref } from "vue";
 import Aba from "../Aba/Aba.vue";
+
 export interface abaProp {
   tab: string;
   content: string;

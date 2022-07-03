@@ -2,11 +2,11 @@
   <div class="container">
     <div>
       <label for="title">Título</label>
-      <input name="title" type="text" />
+      <input name="title" type="text" v-model="title" />
     </div>
     <div>
       <label for="content">Conteúdo</label>
-      <UTextArea name="{nameTextArea}" />
+      <textarea name="{nameTextArea}" v-model="content" />
     </div>
   </div>
 </template>
@@ -29,3 +29,16 @@ textarea {
   width: 400px;
 }
 </style>
+
+<script setup lang="ts">
+import useVuelidate from "@vuelidate/core";
+import { required } from "@vuelidate/validators";
+import { ref } from "vue";
+
+export interface StateProp {
+  title: string;
+  content: string;
+}
+defineProps<StateProp>();
+
+</script>
