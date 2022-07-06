@@ -12,7 +12,7 @@
     <div class="content" id="CatchVue">
     <form @submit.prevent="submit">
       <CatchInfoVue
-        v-for="(item,i) in stateStore.state"
+        v-for="(item,i) in localState.value"
         :key="i"
         :title="item.title"
         :content="item.content"        
@@ -38,15 +38,15 @@ import { reactive, ref, watch } from "vue";
 
 const qutInputs = ref(0)
 
-const localState:StateType[]=reactive([] as StateType[])
+const localState=reactive({value:[] as StateType[]})
 
 const submit =()=>{
-  stateStore.addState(localState)
+  stateStore.addState(localState.value)
 };
 
 
 const saveData = (val:StateType,i:number)=>{
-  localState[i] = val;
+  localState.value[i] = val;
 
 }
 
@@ -64,7 +64,7 @@ watch(qutInputs, (qutInputs) => {
   for (let index = 0; index < qutInputs; index++) {
     NewArray.push({title:'',content:''});
   }
-  stateStore.addState(NewArray);
+  localState.value=NewArray;
 });
 
 
