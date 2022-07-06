@@ -1,17 +1,17 @@
 <template>
   <div class="abas-father">
     <div class="aba">
-      <Aba
+      <!-- <Aba
         v-for="(item, index) in abas"
         :key="index"
         :tab="item.title"
         :position="index"
         @change="chanceCurrentAba"
-      />
+      /> -->
     </div>
 
     <div class="content">
-      <h4>{{ abas[state].content }}</h4>
+      <!-- <h4>{{ abas[state].content }}</h4> -->
     </div>
   </div>
 </template>

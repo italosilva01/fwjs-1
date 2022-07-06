@@ -61,30 +61,6 @@ watch(stateStore,()=>{
 })
 
 
-// export interface StateProp {
-//   title: string;
-//   content: string;
-// }
-// interface TabProps {
-//   state: StateProp[];
-// }
-
-// defineProps<TabProps>();
-
-// const states = ref(
-//      [
-        
-//       ] as StateProp[]
-//     )
-// const qutInputs = ref(0);
-
-// const chanceValue = (newState: StateProp[]) => {
-//   states.value = newState;
-// };
-
-// watch(states, (states) => {
-//   console.log(states);
-// });
 
 watch(qutInputs, (qutInputs) => {
   let NewArray: StateType[] = [];
@@ -95,15 +71,6 @@ watch(qutInputs, (qutInputs) => {
   stateStore.addState(NewArray);
 });
 
-//  const rules = {
-//       states:{
-//         $each:{
-//           title:{required},
-//           content:{required}
-//         }
-
-//       }
-//   }
 
   
 

@@ -1,8 +1,7 @@
 <template>
   <div id="container">
     <h1>TesteAAA</h1>
-   <AbaFatherVue :abas="stateStore.state" />
-
+        <AbaFatherVue :abas="stateStore.state"  />
   </div>
   </template>
 
