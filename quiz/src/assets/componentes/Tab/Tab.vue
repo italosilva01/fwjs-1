@@ -97,16 +97,31 @@ watch(qutInputs, (qutInputs) => {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
 
   display: flex;
   justify-content: end;
 }
 
 .content button {
-  filter: brightness(0.8);
+  width: 69px;
+  height: 36px;
+
+/* Primary/Main */
+
+background: #7B61FF;
+border-radius: 4px;
+color: #ffffff;
+border: none;
 }
 .content input {
   width: 400px;
+  background: #FFFFFF;
+/* gray_2/40 */
+
+border: 1px solid #E0E0E0;
+border-radius: 4px;
 }
 .content > div {
   display: flex;

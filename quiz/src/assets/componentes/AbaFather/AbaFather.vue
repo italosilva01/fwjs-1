@@ -7,6 +7,7 @@
         :tab="item.title"
         :position="index"
         @change="chanceCurrentAba"
+        :class="state == index&&'active'"
       />
     </div>
 
@@ -40,19 +41,21 @@ const chanceCurrentAba = (position: number) => {
 <style scoped>
 .aba {
   display: flex;
+  justify-content: start;
+  gap: 5px;
+}
+.active {
+  box-shadow: inset 0px -3px 0px #5A3FE0;
 
-  justify-content: space-between;
 }
 .abas-father {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .content {
   height: 130px;
-  background-color: #f0f0f0;
-  border: 1px solid #aaaaaa;
+ 
   padding: 26px;
   margin-top: 19px;
 }

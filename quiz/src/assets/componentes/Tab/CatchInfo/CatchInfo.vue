@@ -16,6 +16,8 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+
+
 }
 
 .container div {
@@ -27,6 +29,12 @@
 input,
 textarea {
   width: 400px;
+
+  background: #FFFFFF;
+/* gray_2/40 */
+
+border: 1px solid #E0E0E0;
+border-radius: 4px;
 }
 </style>
 

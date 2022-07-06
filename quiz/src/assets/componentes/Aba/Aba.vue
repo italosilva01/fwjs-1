@@ -22,12 +22,15 @@ function btnClick(position: number): void {
   width: 112px;
   height: 32px;
 
-  background-color: #cccccc;
   text-align: center;
-  border: 1px solid #77777777;
   transition: filter 0.2s;
+
+ background: #FFFFFF;
+
+  
+
 }
 .container-button:hover {
-  filter: brightness(0.9);
+  filter: brightness(0.8);
 }
 </style>
