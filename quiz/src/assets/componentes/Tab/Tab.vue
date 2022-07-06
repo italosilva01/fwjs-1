@@ -10,13 +10,14 @@
     </div>
     <hr />
     <div class="content" id="CatchVue">
-    <form @submit="submit">
+    <form @submit.prevent="submit">
       <CatchInfoVue
-        v-for="(item,i) in state"
+        v-for="(item,i) in stateStore.state"
         :key="i"
-        :set="v = $v.state.$each"
         :title="item.title"
-        :content="item.content"
+        :content="item.content"        
+        v-on:save-data="saveData($event,i)"
+        :position="i"
       />
       <div class="content">
       <button type="submit">Salvar</button>
@@ -31,63 +32,82 @@
 <script setup lang="ts">
 
 import CatchInfoVue from "./CatchInfo/CatchInfo.vue";
-import { computed, ref, watch } from "vue";
-import { required } from "@vuelidate/validators";
-import useVuelidate from "@vuelidate/core";
 
-export interface StateProp {
-  title: string;
-  content: string;
-}
-interface TabProps {
-  state: StateProp[];
-}
+import { stateStore, type StateType, } from "@/assets/store/tab.store";
+import { reactive, ref, watch } from "vue";
 
-defineProps<TabProps>();
+const qutInputs = ref(0)
 
-const state = ref([] as StateProp[]);
-const qutInputs = ref(0);
+const localState:StateType[]=reactive([] as StateType[])
 
-const chanceValue = (newState: StateProp[]) => {
-  state.value = newState;
+const submit =()=>{
+  console.log(localState)
+  stateStore.addState(localState)
 };
-watch(state, (state) => {
-  console.log(state);
-});
+
+
+const saveData = (val:StateType,i:number)=>{
+  localState[i] = val;
+
+}
+
+watch(localState,(localState)=>{
+  console.log(localState);
+})
+
+  
+watch(stateStore,()=>{
+  console.log(stateStore);
+})
+
+
+// export interface StateProp {
+//   title: string;
+//   content: string;
+// }
+// interface TabProps {
+//   state: StateProp[];
+// }
+
+// defineProps<TabProps>();
+
+// const states = ref(
+//      [
+        
+//       ] as StateProp[]
+//     )
+// const qutInputs = ref(0);
+
+// const chanceValue = (newState: StateProp[]) => {
+//   states.value = newState;
+// };
+
+// watch(states, (states) => {
+//   console.log(states);
+// });
 
 watch(qutInputs, (qutInputs) => {
-  let NewArray: StateProp[] = [];
+  let NewArray: StateType[] = [];
 
   for (let index = 0; index < qutInputs; index++) {
     NewArray.push({title:'',content:''});
   }
-  console.log(NewArray);
-  chanceValue(NewArray);
+  stateStore.addState(NewArray);
 });
 
+//  const rules = {
+//       states:{
+//         $each:{
+//           title:{required},
+//           content:{required}
+//         }
 
-const rules = computed(()=>({
-  state:{
-    $each:{
-      title:{required},
-      content:{required}
-    }
+//       }
+//   }
 
-  }
-})) 
-
-const $v = useVuelidate(rules,{state});
-
-const submit =(data:any)=>{
-  data.preventDefault();
-
-  console.log(data)
-
-      console.log(this?.$v.$touch())
-
-
-};
   
+
+
 </script>
 
 <style scoped>

@@ -4,7 +4,7 @@
       <Aba
         v-for="(item, index) in abas"
         :key="index"
-        :tab="item.tab"
+        :tab="item.title"
         :position="index"
         @change="chanceCurrentAba"
       />
@@ -21,7 +21,7 @@ import { ref } from "vue";
 import Aba from "../Aba/Aba.vue";
 
 export interface abaProp {
-  tab: string;
+  title: string;
   content: string;
 }
 export interface AbaFatherProps {
@@ -42,17 +42,14 @@ const chanceCurrentAba = (position: number) => {
   display: flex;
 
   justify-content: space-between;
-  width: 514px;
 }
 .abas-father {
-  margin: auto;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .content {
-  width: 514px;
   height: 130px;
   background-color: #f0f0f0;
   border: 1px solid #aaaaaa;

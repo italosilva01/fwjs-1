@@ -2,11 +2,11 @@
   <div class="container">
     <div>
       <label for="title">Título</label>
-      <input name="title" type="text" v-model="title" />
+      <input name="title" type="text" v-model="title" @change="chanceValueTitle(title,position)"  />
     </div>
     <div>
       <label for="content">Conteúdo</label>
-      <textarea name="{nameTextArea}" v-model="content" />
+      <textarea name="{nameTextArea}" v-model="content" @change="chanceValueContent(content,position)" />
     </div>
   </div>
 </template>
@@ -31,14 +31,38 @@ textarea {
 </style>
 
 <script setup lang="ts">
-import useVuelidate from "@vuelidate/core";
-import { required } from "@vuelidate/validators";
-import { ref } from "vue";
+import type { StateType } from '@/assets/store/tab.store';
+import { ref, watch } from 'vue';
 
-export interface StateProp {
+ interface StateProp {
   title: string;
   content: string;
+  position:number;
+  
 }
+interface StateEmit {
+ (e:"saveData", val:StateType,i:number):void
+}
+
 defineProps<StateProp>();
+const emit = defineEmits<StateEmit>();
+
+const titleValue = ref('');
+const contentValue = ref('');
+
+
+const chanceValueTitle = (val:string,i:number)=>{
+  titleValue.value = val
+  
+  emit('saveData',{title:titleValue.value,content:contentValue.value,},i)
+}
+
+const chanceValueContent = (val:string,i:number)=>{
+  contentValue.value = val
+  emit('saveData',{title:titleValue.value,content:contentValue.value,},i)
+
+}
+
+
 
 </script>
