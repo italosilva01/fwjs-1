@@ -41,7 +41,6 @@ const qutInputs = ref(0)
 const localState:StateType[]=reactive([] as StateType[])
 
 const submit =()=>{
-  console.log(localState)
   stateStore.addState(localState)
 };
 
@@ -51,9 +50,6 @@ const saveData = (val:StateType,i:number)=>{
 
 }
 
-watch(localState,(localState)=>{
-  console.log(localState);
-})
 
   
 watch(stateStore,()=>{

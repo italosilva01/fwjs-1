@@ -12,7 +12,7 @@ export interface StateStore {
 }
 
 export const stateStore = reactive<StateStore>({
-    state:reactive<StateType[]>([]),
+    state:reactive<StateType[]>([{ title:'Tab',content:'Sem conteúdo'}]),
 
     addState(newState:StateType[]){
         this.state = newState;
