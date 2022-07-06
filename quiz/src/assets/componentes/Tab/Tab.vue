@@ -15,7 +15,8 @@
         v-for="(item,i) in localState.value"
         :key="i"
         :title="item.title"
-        :content="item.content"        
+        :content="item.content"   
+        :valid="item.valid"     
         v-on:save-data="saveData($event,i)"
         :position="i"
       />
@@ -38,14 +39,29 @@ import { reactive, ref, watch } from "vue";
 
 const qutInputs = ref(0)
 
-const localState=reactive({value:[] as StateType[]})
+const localState=reactive({value:[] as {title:string,content:string,valid:boolean}[]})
 
 const submit =()=>{
-  stateStore.addState(localState.value)
+
+  const allValid = ref(true);
+  
+  localState.value.forEach((element,index) => {
+    
+      if(element.title==""||element.content==""){
+        localState.value[index].valid = false;
+        allValid.value = false;
+      }
+  });
+
+  console.log(localState.value)
+  if(allValid.value){
+    stateStore.addState(localState.value)
+
+  }
 };
 
 
-const saveData = (val:StateType,i:number)=>{
+const saveData = (val:{title:string,content:string,valid:boolean},i:number)=>{
   localState.value[i] = val;
 
 }
@@ -59,10 +75,10 @@ watch(stateStore,()=>{
 
 
 watch(qutInputs, (qutInputs) => {
-  let NewArray: StateType[] = [];
+  let NewArray: {title:string,content:string,valid:boolean}[] = [];
 
   for (let index = 0; index < qutInputs; index++) {
-    NewArray.push({title:'',content:''});
+    NewArray.push({title:'',content:'',valid:true});
   }
   localState.value=NewArray;
 });
