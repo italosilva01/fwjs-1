@@ -3,7 +3,17 @@
     <div class="content">
         <div>
             <label>Núm.tabs</label>
-            <input type="number" name="numTabs">
+            <input type="number" name="numTabs" bind:value={value} on:change={()=>{
+
+              teste = [];
+
+              for (let index = 0; index < value; index++){
+                teste.push({title:'',content:'',valid:true});
+               
+              }
+              teste = teste;
+            }
+            }/>
         </div>
 
 
@@ -11,15 +21,15 @@
     <hr/>
     <div class="content" id="CatchVue">
         <form >
-          <!-- <CatchInfoVue
-            v-for="(item,i) in localState.value"
-            :key="i"
-            :title="item.title"
-            :content="item.content"   
-            :valid="item.valid"     
-            v-on:save-data="saveData($event,i)"
-            :position="i"
-          /> -->
+         
+
+            {#each teste as item }
+             <!-- content here -->
+             <CatchInfo titleValue={item.title} contentValue={item.content} valid={item.valid} />
+           {/each}
+         
+          
+         
           <div class="content">
           <button type="submit">Salvar</button>
           
@@ -27,6 +37,15 @@
           </form>
         </div>
 </div>
+
+<script lang="ts">
+import CatchInfo from "./CatchInfo/CatchInfo.svelte";
+
+
+  let teste = [];
+  let value = 0;
+
+</script>
 
 <style>
     #container {

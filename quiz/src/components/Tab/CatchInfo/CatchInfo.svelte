@@ -1,21 +1,33 @@
 <div class="container">
     <div>
       <label for="title">Título</label>
-      <input name="title" type="text"   />
+      <input name="title" type="text" bind:value={titleValue}  />
       
     </div>
+    {#if !valid&&titleValue=='' }
     <div class="error">
       <p>É necessário informar o título da aba</p>
     </div>
+  {/if}
+    
 
     <div>
       <label for="content">Conteúdo</label>
-      <textarea  />
+      <textarea bind:value={contentValue} />
     </div>
-    <div  class="error">
-      <p>A necessário informar o conteúdo da aba.</p>
-    </div>
+    {#if !valid&&contentValue=='' }
+      <div  class="error">
+        <p>A necessário informar o conteúdo da aba.</p>
+      </div>  
+    {/if}
+    
   </div>
+  
+  <script lang="ts">
+    export let titleValue = ' ';
+    export let contentValue= ' ';
+    export let valid:boolean;
+  </script>
 
   <style  >
     .container {
