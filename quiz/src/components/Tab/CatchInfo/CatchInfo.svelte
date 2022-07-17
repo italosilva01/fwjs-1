@@ -1,7 +1,7 @@
 <div class="container">
     <div>
       <label for="title">Título</label>
-      <input name="title" type="text" bind:value={titleValue}  />
+      <input name={`title${index}`} type="text" bind:value={titleValue}  />
       
     </div>
     {#if !valid&&titleValue=='' }
@@ -13,7 +13,7 @@
 
     <div>
       <label for="content">Conteúdo</label>
-      <textarea bind:value={contentValue} />
+      <textarea bind:value={contentValue}  name={`content${index}`}/>
     </div>
     {#if !valid&&contentValue=='' }
       <div  class="error">
@@ -24,9 +24,10 @@
   </div>
   
   <script lang="ts">
-    export let titleValue = ' ';
-    export let contentValue= ' ';
+    export let titleValue = '';
+    export let contentValue= '';
     export let valid:boolean;
+    export let index:number;
   </script>
 
   <style  >

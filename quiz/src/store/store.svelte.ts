@@ -12,7 +12,7 @@ export interface StateStore {
 
  const stateStore= writable([] as StateType[]);
 
- export function AddState (newState:StateType[]){
+ export default function AddState (newState:StateType[]){
     stateStore.set(newState)
 
  }

@@ -20,12 +20,11 @@
     </div>
     <hr/>
     <div class="content" id="CatchVue">
-        <form >
+        <form  on:submit|preventDefault={submitForm}>
          
 
-            {#each teste as item }
-             <!-- content here -->
-             <CatchInfo titleValue={item.title} contentValue={item.content} valid={item.valid} />
+            {#each teste as item,i }
+             <CatchInfo titleValue={item.title} contentValue={item.content} valid={item.valid} index={i} />
            {/each}
          
           
@@ -40,10 +39,59 @@
 
 <script lang="ts">
 import CatchInfo from "./CatchInfo/CatchInfo.svelte";
-
-
+import AddState from "../../store/store.svelte"; 
   let teste = [];
   let value = 0;
+
+  const getDatasForm =(formData: FormData)=>{
+    const data = {};
+
+    for (let field of formData){
+      const [key,value] = field;
+
+      
+      data[key] = value;
+    }
+
+    return data;
+  }
+
+  const makeArray = (data:{}) =>{
+    let array = []
+    for (let index = 0; index< value; index++){
+      let title =data[`title${index}`];
+      let content =data[`content${index}`];  
+      array[index] ={title,content}
+         
+      
+    }
+
+    return array
+  }
+
+  const submitForm =(e)=>{
+    
+    const formData = new FormData(e.target);
+    const data = getDatasForm(formData);
+    let error =false
+    
+     
+      Object.keys(data).map((item)=>{
+      if(data[item] ===''){
+        const position = item.substring(item.length - 1);
+        console.log(item)
+        teste[position].valid = false;
+        error = true
+      }
+    })
+    
+    if(!error){
+      AddState( makeArray(data))
+
+     
+    }
+
+  }
 
 </script>
 
