@@ -1,16 +1,18 @@
-<div  class="aba" on:click={change}>
+<div  class="container-button" on:click={change}>
 {name}</div>
-<style>
-.aba{
-  width: 112px;
-  height: 32px;
-  background-color: #cccccc;
-  border: 1px solid #77777777;
-  text-align: center;
-}
-
-
-</style>
+<style >
+  .container-button {
+    width: 112px;
+    height: 32px;
+    text-align: center;
+    transition: filter 0.2s;
+   background: #FFFFFF;
+    
+  }
+  .container-button:hover {
+    filter: brightness(0.8);
+  }
+  </style>
 
 <script lang="ts">
     import {createEventDispatcher}from 'svelte'

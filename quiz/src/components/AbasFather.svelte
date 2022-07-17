@@ -11,7 +11,7 @@
   </div>
 
   <script lang="ts">
-      import Aba from './Aba.svelte'
+     import Aba from './Aba.svelte'
      export let abas:{tab:string,content:string}[] ;
   
      let currentAba = 0
@@ -22,26 +22,27 @@
   }
   </script>
 
-  <style>
-.container {
-  display: flex;
-
-  justify-content: space-between;
-  width: 514px;
-}
-.content {
-  width: 514px;
-  height: 130px;
-  background-color: #f0f0f0;
-  border: 1px solid #aaaaaa;
-  padding: 26px;
-  margin-top: 19px;
-}
-.abas-father {
-  margin: auto;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+<style >
+  .aba {
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+  }
+  .container{
+    display: flex;
+  }
+  .active {
+    box-shadow: inset 0px -3px 0px #5A3FE0;
+  }
+  .abas-father {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .content {
+    height: 130px;
+   
+    padding: 26px;
+    margin-top: 19px;
+  }
   </style>

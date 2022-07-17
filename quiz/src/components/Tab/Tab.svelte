@@ -2,7 +2,7 @@
     <h1 class="title-component">Tab</h1>
     <div class="content">
         <div>
-            <label>Núm.tabs</label>
+            <label for="numTabs">Núm.tabs</label>
             <input type="number" name="numTabs" bind:value={value} on:change={()=>{
 
               teste = [];

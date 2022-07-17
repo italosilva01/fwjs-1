@@ -1,14 +1,14 @@
     <div id="container">
       <h1>Conteúdo</h1>
      
-          <!-- <AbasFather abas={tabs.stateStore}   /> -->
+          <AbasFather abas={aba}   />
 
-        <button on:click={()=>console.log(tabs)}>Teste</button>
+      
     </div>
   
   <script lang="ts">
-    import {tabs} from "../../store/tab.store"
- //   import AbasFather from "../AbasFather.svelte";
+    ///import {tabs} from "../../store/tab.store"
+   import AbasFather from "../AbasFather.svelte";
     const aba = [
     { tab: "Tab1", content: "1111111111111111111111111111111111111" },
     { tab: "Tab2", content: "2222222222222222222222222222222222222" },
