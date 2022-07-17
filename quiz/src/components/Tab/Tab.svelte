@@ -39,7 +39,7 @@
 
 <script lang="ts">
 import CatchInfo from "./CatchInfo/CatchInfo.svelte";
-import AddState from "../../store/store.svelte"; 
+import {tabs} from '../../store/tab.store' 
   let teste = [];
   let value = 0;
 
@@ -86,7 +86,7 @@ import AddState from "../../store/store.svelte";
     })
     
     if(!error){
-      AddState( makeArray(data))
+      tabs.AddState( makeArray(data))
 
      
     }

@@ -10,9 +10,15 @@ export interface StateStore {
     addState: (newState:StateType[])=>void
 }
 
- const stateStore= writable([] as StateType[]);
+  export let stateStore= writable([] as StateType[]);
 
- export default function AddState (newState:StateType[]){
+ const AddState = (newState:StateType[])=>{
     stateStore.set(newState)
 
+ }
+
+
+ export const tabs = {
+    AddState,
+    stateStore,
  }
